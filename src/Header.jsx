@@ -36,7 +36,7 @@ export default function Header(){
                     <div className="size-16 flex">
                         <div className="border-[65px] border-t-[--phillipine] border-[#0038a700] border-r-0"></div>
                         <div className="flex bg-[--phillipine] min-w-full cursor-pointer" to={'/create'}>
-                            <img src="src/assets/newman mark white.svg" alt="" className="" />
+                            <img src="./src/assets/newman mark white.svg" alt="" className="" />
                         </div>
                         <div className="border-[65px] border-t-[--phillipine] border-[#0038a700] border-l-0"></div>
                     </div>
