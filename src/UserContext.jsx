@@ -13,11 +13,13 @@ export function UserContextProvider({children}){
                 axios.get('/getUser').then(({data})=>{
                     setUser(data.userDoc)
                     setReady(true)
+                    return
                 })   
             } catch (error) {
                 console.log(error)
                 setReady(true)
             }
+            setReady(true)
         }
     },[])
 
