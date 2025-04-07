@@ -7,6 +7,7 @@ import Header from "../Header"
 export default function CreatePage(){
     const {user, setUser, ready} = useContext(UserContext)
     const [redirect, setRedirect] = useState(false)
+    const [back, setBack] = useState(false)
     const [postList, setPostList] = useState([])
     const [positionAbove, setPositionAbove] = useState(true)
     const [title, setTitle] = useState("")
@@ -68,11 +69,21 @@ export default function CreatePage(){
         return <Navigate to={'/login'} />
     }
 
+    if(back){
+        return <Navigate to={"/"} />
+    }
+
     return (
         <div className="flex flex-col min-h-screen bg-[--deepblue]">
             <Header />
 
             <div className="text-center max-w-[600px] w-full flex flex-col mx-auto p-1">
+                <div className="text-white flex hover:text-[--highlight] cursor-pointer" onClick={e=>setBack(true)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                    </svg>
+                    Back
+                </div>
                 <h1 className="text-3xl font-medium text-white">Create New Post</h1>
                 <label className="text-2xl text-left mt-6 mb-2 text-white">Title* <span className="text-sm">(Internal use only - does not display)</span></label>
                 <input type="text" className="text-xl p-2 rounded-md" placeholder="Enter a title" value={title} onChange={e=>setTitle(e.target.value)} />
@@ -87,13 +98,13 @@ export default function CreatePage(){
                     {photoList.length > 0 && photoList.map(photo=> (
                         <img src={photo.url} className="rounded-md" key={photo.public_id}/>
                     ))}
-                    <label className="justify-center flex flex-col cursor-pointer border rounded-md w-full h-full items-center min-h-[100px] bg-[#6661] text-sm text-white hover:text-[--highlight] hover:border-[--highlight] hover:bg-[#0df1]">
+                    {/* <label className="justify-center flex flex-col cursor-pointer border rounded-md w-full h-full items-center min-h-[100px] bg-[#6661] text-sm text-white hover:text-[--highlight] hover:border-[--highlight] hover:bg-[#0df1]">
                         <input type="file" multiple className="hidden" onChange={e=>uploadPhotos(e)}/>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8 mx-auto">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
                         </svg>
                         <div className="">Upload</div>
-                    </label>
+                    </label> */}
                 </div>
                 <label className="text-2xl text-left mt-6 mb-2 text-white">Display Photo Position</label>
                 <div className="flex justify-around">
