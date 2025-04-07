@@ -31,17 +31,15 @@ export default function Header(){
             <div className="flex w-full">
                 <div>{user? `Hello, ${user.firstName}` : "Hi"}</div>
             </div>
-            <div className="flex -ml-[132px]">
-                <Link to={"/"} className="">
-                    <div className="size-16 flex">
-                        <div className="border-[65px] border-t-[--phillipine] border-[#0038a700] border-r-0"></div>
-                        <div className="flex bg-[--phillipine] min-w-full cursor-pointer" to={'/create'}>
-                            <img src="assets/newman mark white.svg" alt="" className="" />
-                        </div>
-                        <div className="border-[65px] border-t-[--phillipine] border-[#0038a700] border-l-0"></div>
+            <Link to={"/"}  className="flex -ml-[132px]">
+                <div className="size-16 flex">
+                    <div className="border-[65px] border-t-[--phillipine] border-[#0038a700] border-r-0"></div>
+                    <div className="flex bg-[--phillipine] min-w-full cursor-pointer" to={'/create'}>
+                        <img src="assets/newman mark white.svg" alt="" className="" />
                     </div>
-                </Link>
-            </div>
+                    <div className="border-[65px] border-t-[--phillipine] border-[#0038a700] border-l-0"></div>
+                </div>
+            </Link>
             <div className="flex gap-4 justify-end w-full">
                 <div className="cursor-pointer hover:text-[--highlight]" onClick={e=>handleLogout(e)}>logout</div>
                 <Link to={'/create'} className="hover:text-[--highlight]">
