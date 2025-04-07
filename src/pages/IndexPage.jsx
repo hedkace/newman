@@ -38,7 +38,7 @@ export default function IndexPage(){
                 </div> */}
 
                 <section className="flex flex-col text-white mx-auto w-[600px] gap-8 p-1">
-                    {postList.length > 0 && postList.map(post => (
+                    {postList?.length > 0 && postList.map(post => (
                         <Link to={`/post/${post._id}`} className="border border-[#fff3] rounded-lg shadow shadow-[#fff3] bg-[#136]" key={post._id}>
                             {post.photoPosition === "above" && (
                                 <div className="w-full h-[320px] flex">
