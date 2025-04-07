@@ -48,7 +48,7 @@ export default function PostPage(){
                 </div>
                 <h1 className="text-3xl font-medium text-white mb-8">{post?.title}</h1>
                 <div className="text-white text-gray-300 text-right mb-4">{post? new Date(post?.createdAt).toLocaleDateString("en-US",{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : ""}</div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className={post?.photos.length > 1 ? "grid grid-cols-1 md:grid-cols-2 gap-4" : ""}>
                     {post?.photos.length > 0 && post.photos.map(photo=>(
                         <img src={photo.url} className="w-full rounded-lg" key={photo._id} />
                     ))}
