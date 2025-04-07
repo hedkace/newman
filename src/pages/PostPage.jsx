@@ -55,6 +55,7 @@ export default function PostPage(){
                 </div>
                 <div className="text-white text-left mt-8">{post?.body}</div>
             </div>
+            <div className="min-h-[50px]"></div>
         </div>
     )
 }
