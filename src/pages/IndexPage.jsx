@@ -10,7 +10,7 @@ export default function IndexPage(){
     const [postList, setPostList] = useState([])
 
     useEffect(()=>{
-        axios.get('/posts',{withCredentials: true}).then(({data})=>
+        axios.get('/posts').then(({data})=>
             setPostList(data)
         )
     },[])
