@@ -8,7 +8,8 @@ import IndexPage from './pages/IndexPage'
 import CreatePage from './pages/CreatePage'
 import PostPage from './pages/PostPage'
 
-axios.defaults.baseURL = "http://localhost:4000"
+//axios.defaults.baseURL = "http://localhost:4000"
+axios.defaults.baseURL = "https://newman-server.vercel.app/"
 axios.defaults.withCredentials = true
 
 function App() {
