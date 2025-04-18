@@ -39,6 +39,7 @@ export default function CreatePage(){
             })
             console.log(response)
             setPhotoList(prev=>[...prev, response.data])
+            setImageLink("")
         } catch (error) {
             console.log(error)
             throw error
@@ -53,11 +54,13 @@ export default function CreatePage(){
             photos: photoList,
             photoPosition: positionAbove? "above" : "below",
         }
+        console.log(postDetails)
         const response = await axios.post('/post',postDetails)
         if(response.success){
             alert('post successful')
             return <Navigate to={"/"} />
         }
+        alert('Post failed. Try again later.')
     }
 
     if(!ready){
@@ -88,7 +91,8 @@ export default function CreatePage(){
                 <label className="text-2xl text-left mt-6 mb-2 text-white">Title* <span className="text-sm">(Internal use only - does not display)</span></label>
                 <input type="text" className="text-xl p-2 rounded-md" placeholder="Enter a title" value={title} onChange={e=>setTitle(e.target.value)} />
                 <label className="text-2xl text-left mt-6 mb-2 text-white">Body*</label>
-                <input type="text" className="text-xl p-2 rounded-md" placeholder="Type the body of your post." value={body} onChange={e=>setBody(e.target.value)}  />
+                <textarea rows="10" className="text-xl p-2 rounded-md" placeholder="Type the body of your post" value={body} onChange={e=>setBody(e.target.value)}/>
+                {/* <input type="text" className="text-xl p-2 rounded-md" placeholder="Type the body of your post." value={body} onChange={e=>setBody(e.target.value)}  /> */}
                 <label className="text-2xl text-left mt-6 mb-2 text-white">Photos</label>
                 <div className="flex">
                     <input type="text" className="text-md p-2 rounded-l-md grow" placeholder="Paste image url here" value={imageLink} onChange={e=>setImageLink(e.target.value)} />
@@ -98,13 +102,13 @@ export default function CreatePage(){
                     {photoList.length > 0 && photoList.map(photo=> (
                         <img src={photo.url} className="rounded-md" key={photo.public_id}/>
                     ))}
-                    {/* <label className="justify-center flex flex-col cursor-pointer border rounded-md w-full h-full items-center min-h-[100px] bg-[#6661] text-sm text-white hover:text-[--highlight] hover:border-[--highlight] hover:bg-[#0df1]">
-                        <input type="file" multiple className="hidden" onChange={e=>uploadPhotos(e)}/>
+                    <label className="justify-center flex flex-col cursor-pointer border rounded-md w-full h-full items-center min-h-[100px] bg-[#6661] text-sm text-white hover:text-[--highlight] hover:border-[--highlight] hover:bg-[#0df1]" onClick={()=>alert("Feature disabled on free tier. Upload a photo from the internet by pasting a link instead.")}>
+                        {/* <input type="file" multiple className="hidden" onChange={e=>uploadPhotos(e)}/> */}
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8 mx-auto">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
                         </svg>
                         <div className="">Upload</div>
-                    </label> */}
+                    </label>
                 </div>
                 <label className="text-2xl text-left mt-6 mb-2 text-white">Display Photo Position</label>
                 <div className="flex justify-around">
@@ -118,15 +122,14 @@ export default function CreatePage(){
                     </div>
                 </div>
                 
-                <label className="text-2xl text-left mt-6 mb-2 text-white">Preview</label>
+                {/* <label className="text-2xl text-left mt-6 mb-2 text-white">Preview</label>
                 <div className="border min-h-[10px] rounded-sm">
 
-                </div>
-
-
+                </div> */}
 
                 <button className="text-xl p-2 rounded-md bg-gray-300 text-black mt-16 hover:bg-[--highlight]" onClick={e=>publishPost(e)}>Post</button>
             </div>
+            <div className="min-h-[50px]"></div>
         </div>
     )
 }

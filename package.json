@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-react": "^9.5.0",
     "autoprefixer": "^10.4.21",
     "axios": "^1.8.4",
     "postcss": "^8.5.3",

@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 @font-face {
     font-family: 'Geoslab';
@@ -11,6 +7,10 @@
     font-family: 'Geoslablight';
     src: url('assets/Geometric Slabserif 703 Light Regular.otf') format("opentype");
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root{
     --deepblue: #062860;
     --phillipine: #0038a7;
@@ -20,4 +20,35 @@
 
 *{
     font-family: Inter;
+}
+
+
+
+
+
+
+
+@media print {
+	body {
+		margin: 0 !important;
+	}
+}
+
+.main-container {
+	font-family: 'Inter';
+    width: 100%;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ck-content {
+	font-family: 'Inter';
+	line-height: 1.6;
+	word-break: break-word;
+}
+
+.editor-container_classic-editor .editor-container__editor {
+	min-width: 300px;
+	max-width: 795px;
 }
