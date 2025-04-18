@@ -88,7 +88,7 @@ export default function CreatePage(){
                     Back
                 </div>
                 <h1 className="text-3xl font-medium text-white">Create New Post</h1>
-                <label className="text-2xl text-left mt-6 mb-2 text-white">Title* <span className="text-sm">(Internal use only - does not display)</span></label>
+                <label className="text-2xl text-left mt-6 mb-2 text-white">Title*</label>
                 <input type="text" className="text-xl p-2 rounded-md" placeholder="Enter a title" value={title} onChange={e=>setTitle(e.target.value)} />
                 <label className="text-2xl text-left mt-6 mb-2 text-white">Body*</label>
                 <textarea rows="10" className="text-xl p-2 rounded-md" placeholder="Type the body of your post" value={body} onChange={e=>setBody(e.target.value)}/>
